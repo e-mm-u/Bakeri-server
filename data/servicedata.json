@@ -1,0 +1,56 @@
+[
+    {
+        "c_id": 1,
+        "name": "Cake",
+        "title": "commodo eu irure reprehenderit eu sunt elit elit aute cupidatat",
+        "details": "Esse magna id ipsum consectetur nisi adipisicing et nostrud commodo proident. Deserunt anim irure ipsum culpa magna non esse ea sint et. Irure est qui voluptate anim consectetur.\r\n",
+        "photoURL": "https://img.freepik.com/premium-photo/chocolate-cake-with-strawberries-table_107760-823.jpg",
+        "price": 200,
+        "rating": 3
+    },
+    {
+        "c_id": 2,
+        "name": "Bread",
+        "title": "id aliqua qui in dolore ut elit culpa eiusmod minim",
+        "details": "Irure id enim ad est dolor minim labore elit aliquip cupidatat. Ea in occaecat adipisicing ea sunt tempor incididunt ipsum commodo non duis anim ea. Minim consectetur non consectetur anim adipisicing fugiat cillum aute commodo in. Minim anim veniam cillum magna incididunt aliquip sit exercitation sint ea sint. Deserunt adipisicing consequat excepteur pariatur dolor eiusmod ipsum duis tempor do. Pariatur Lorem ex in tempor nulla do culpa proident incididunt eu labore esse cillum aliquip.\r\n",
+        "photoURL": "https://img.freepik.com/premium-photo/slices-bread-isolated-white_62193-633.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "c_id": 3,
+        "name": "Cookies",
+        "title": "in commodo nostrud nulla qui deserunt eu est laborum minim",
+        "details": "Nostrud adipisicing incididunt dolore labore ad cupidatat id ea nostrud magna culpa sit. Aliqua nostrud enim anim tempor quis nisi deserunt quis quis nisi ut. Consectetur quis mollit ut aliquip. Labore non ullamco Lorem consectetur id occaecat. Qui voluptate elit voluptate excepteur.\r\n",
+        "photoURL": "https://img.freepik.com/premium-photo/chocolate-chip-cookies-white-background_146936-712.jpg",
+        "price": 300,
+        "rating": 3
+    },
+    {
+        "c_id": 4,
+        "name": "Pizza",
+        "title": "proident sint id commodo elit laborum fugiat aliqua nostrud tempor",
+        "details": "Ex nulla aliqua in cillum. Qui ex culpa fugiat sint cupidatat ex nisi ut deserunt elit voluptate commodo in nisi. Elit quis ipsum minim culpa exercitation laborum ex. Reprehenderit mollit laborum anim deserunt in quis excepteur fugiat laboris enim est ea enim non. Consectetur id eu ipsum dolore aliqua Lorem anim non amet anim.\r\n",
+        "photoURL": "https://img.freepik.com/premium-photo/tasty-pepperoni-pizza-with-mushrooms-olives_79782-1976.jpg?size=626&ext=jpg",
+        "price": 200,
+        "rating": 4
+    },
+    {
+        "c_id": 5,
+        "name": "Brownie",
+        "title": "cupidatat occaecat magna duis aute ipsum laboris non elit non",
+        "details": "Quis mollit laborum sint minim excepteur elit duis ullamco proident ullamco amet sint. Cupidatat enim proident Lorem officia aliqua quis aute sit occaecat anim. Enim exercitation in amet consequat esse labore eiusmod dolor amet.\r\n",
+        "photoURL": "https://img.freepik.com/premium-photo/homemade-bakery-dark-chocolate-brownies-cake-delicious-bitter-sweet-chewy-brownie-is-one-type-chocolate-cake_155165-16325.jpg",
+        "price": 600,
+        "rating": 4
+    },
+    {
+        "c_id": 6,
+        "name": "Pie",
+        "title": "ea voluptate ea ad in non velit Lorem culpa est",
+        "details": "Enim nisi fugiat dolore voluptate. Reprehenderit consequat duis mollit sit pariatur duis ea voluptate dolor ut mollit voluptate et. Aliquip aliqua laborum nisi laboris voluptate aliqua nulla mollit proident consectetur officia ipsum deserunt. Non aliquip et adipisicing ipsum aliquip voluptate laboris ex ea tempor laboris aute ad aliqua. Tempor enim est ex aute proident eiusmod non laboris. Elit qui amet id ad est irure nisi ipsum consectetur aute exercitation.\r\n",
+        "photoURL": "https://img.freepik.com/free-photo/homemade-mini-apple-pie-with-cinnamon_114579-13207.jpg",
+        "price": 200,
+        "rating": 5
+    }
+]

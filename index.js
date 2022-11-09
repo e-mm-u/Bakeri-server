@@ -61,6 +61,9 @@ async function run(){
             if(req.query.id){
                 query = { "_id" : ObjectId(req.query.id) }
             }
+            if(req.query.serviceId){
+                query = { "serviceInfo._id" : req.query.serviceId }
+            }
             const cursor = reviewsCollection.find(query);
             const reviews = await cursor.toArray();
             console.log(reviews)

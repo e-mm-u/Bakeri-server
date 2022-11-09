@@ -56,8 +56,12 @@ async function run(){
                 query = { "userInfo.email" : req.query.email}
                 // query = { "userInfo" : {email : req.query.email}} // its wrong -_-
             }
+            if(req.query.id){
+                query = { "_id" : ObjectId(req.query.id) }
+            }
             const cursor = reviewsCollection.find(query);
             const reviews = await cursor.toArray();
+            console.log(reviews)
             res.send(reviews)
         })
         //  create reviews ---------- POST reviews
@@ -68,6 +72,22 @@ async function run(){
             console.log(result);
             res.send(result);
         })
+        // update reviews ------------- update
+        app.put('/reviews/:id', async(req,res)=>{
+            const filter = { "_id" : ObjectId(req.params.id) };
+            const updateReview = req.body;
+            const updatedReview = {
+                $set : {
+                    review : updateReview.review ,
+                    userInfo : updateReview.userInfo ,
+                    serviceInfo : updateReview.serviceInfo
+                }
+            }
+            console.log(updatedReview);
+            const result = await reviewsCollection.updateOne(filter, updatedReview);
+            res.send(result);
+        })
+
         // delete reviews ------------- DELETE
         app.delete('/reviews/:id', async(req,res)=>{
             const id = req.params.id;

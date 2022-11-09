@@ -49,6 +49,17 @@ async function run(){
         // _____________________________________________________
         // __________________________ REVIEWS ______________
         const reviewsCollection = client.db('bakery').collection('reviews');
+        // read reviews ------------ GET reviews
+        app.get('/reviews', async(req,res)=>{
+            let query = {};
+            if( req.query.email){
+                query = { "userInfo.email" : req.query.email}
+                // query = { "userInfo" : {email : req.query.email}} // its wrong -_-
+            }
+            const cursor = reviewsCollection.find(query);
+            const reviews = await cursor.toArray();
+            res.send(reviews)
+        })
         //  create reviews ---------- POST reviews
         app.post('/reviews', async(req,res)=>{
             const review = req.body;
@@ -56,6 +67,14 @@ async function run(){
             const result = await reviewsCollection.insertOne(review);
             console.log(result);
             res.send(result);
+        })
+        // get reviews for individual user - My_Reviews
+        app.get('/reviews/:userId', async(req,res)=>{
+            const userId = req.params.userId;
+            const query = { uid : userId };
+            const cursor = reviewsCollection.find(query);
+            const reviews = await cursor.toArray() ;
+            res.send(reviews)
         })
 
         

@@ -64,7 +64,8 @@ async function run(){
             if(req.query.serviceId){
                 query = { "serviceInfo._id" : req.query.serviceId }
             }
-            const cursor = reviewsCollection.find(query);
+            const sort = { _id : -1 };
+            const cursor = reviewsCollection.find(query).sort(sort);
             const reviews = await cursor.toArray();
             console.log(reviews)
             res.send(reviews)
@@ -72,6 +73,9 @@ async function run(){
         //  create reviews ---------- POST reviews
         app.post('/reviews', async(req,res)=>{
             const review = req.body;
+            const review_withTime = {
+                $setOnInsert: { time: new Date() }
+            }
             console.log('reviews in server from client body ', review);
             const result = await reviewsCollection.insertOne(review);
             console.log(result);
@@ -86,7 +90,8 @@ async function run(){
                     review : updateReview.review ,
                     userInfo : updateReview.userInfo ,
                     serviceInfo : updateReview.serviceInfo
-                }
+                },
+                $setOnInsert: { time: new Date() }
             }
             console.log(updatedReview);
             const result = await reviewsCollection.updateOne(filter, updatedReview);
@@ -99,6 +104,16 @@ async function run(){
             const query = { _id : ObjectId(id)};
             const result = await reviewsCollection.deleteOne(query);
             res.send(result);
+        })
+
+        // _____________________________________________________
+        // __________________________ BLOGS ______________
+        const blogsCollection = client.db('bakery').collection('blogs');
+        app.get('/blogs', async(req,res)=>{
+            const query = {};
+            const cursor = blogsCollection.find(query);
+            const blogs = await cursor.toArray();
+            res.send(blogs)
         })
 
     }finally{

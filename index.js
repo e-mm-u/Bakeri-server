@@ -68,17 +68,13 @@ async function run(){
             console.log(result);
             res.send(result);
         })
-        // get reviews for individual user - My_Reviews
-        app.get('/reviews/:userId', async(req,res)=>{
-            const userId = req.params.userId;
-            const query = { uid : userId };
-            const cursor = reviewsCollection.find(query);
-            const reviews = await cursor.toArray() ;
-            res.send(reviews)
+        // delete reviews ------------- DELETE
+        app.delete('/reviews/:id', async(req,res)=>{
+            const id = req.params.id;
+            const query = { _id : ObjectId(id)};
+            const result = await reviewsCollection.deleteOne(query);
+            res.send(result);
         })
-
-        
-        
 
     }finally{
 

@@ -24,21 +24,21 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.PASSWORD}@bakery
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 // _________________________________________________
-// __________________________ JWT verify ______________
-function verifyJwt(req, res, next) {
-    const authheader = req.headers.authorization;
-    if (!authheader) {
-        return res.status(401).send({ message: 'auth header nai' })
-    }
-    const token = authheader.split(' ')[1];
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, function (err, decoded) {
-        if (err) {
-            return res.status(401).send({ message: 'get err while verifying' })
-        }
-        req.decoded = decoded;
-        next();
-    })
-}
+// __________________________ JWT verify R I P -_-  ______________
+// function verifyJwt(req, res, next) {
+//     const authheader = req.headers.authorization;
+//     if (!authheader) {
+//         return res.status(401).send({ message: 'auth header nai' })
+//     }
+//     const token = authheader.split(' ')[1];
+//     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, function (err, decoded) {
+//         if (err) {
+//             return res.status(401).send({ message: 'get err while verifying' })
+//         }
+//         req.decoded = decoded;
+//         next();
+//     })
+// }
 
 async function run() {
     try {
@@ -72,7 +72,11 @@ async function run() {
         // __________________________ REVIEWS ______________
         const reviewsCollection = client.db('bakery').collection('reviews');
         // read reviews ------------ GET reviews
-        app.get('/reviews', verifyJwt, async (req, res) => {
+        app.get('/reviews', async (req, res) => {
+            // const decoded = req.decoded ;
+            // if(decoded.email !== req.query.email){
+            //     res.status(403).send('unauthorized acccess to review, mail no match')
+            // } // --R--I--P--
             let query = {};
             if (req.query.email) {
                 query = { "userInfo.email": req.query.email }
